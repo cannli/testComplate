@@ -19,6 +19,9 @@ const register = resolve => require(['../pages/register/register.vue'], resolve)
 // 分润
 const incomeDistribution = resolve => require(['../pages/financialManagement/incomeDistribution.vue'], resolve)
 
+// es6
+const es6 = resolve =>require(['../pages/ES6/index.vue'],resolve)
+
 const router = new Router({
   // mode: 'history',
   // mode: 'history',
@@ -49,7 +52,8 @@ const router = new Router({
       children: [
         {path: '', redirect: 'tinymce'},
         {path: 'tinymce', component: tinymce},
-        {path: 'toTop', component: toTop, name}
+        {path: 'toTop', component: toTop},
+        {path: 'ES6', component: es6}
       ]
     },
     {

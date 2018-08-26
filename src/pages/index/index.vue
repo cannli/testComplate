@@ -1,27 +1,22 @@
 <template>
   <div>
- <router-link :to="{'path':'/overview/tinymce'}">跳转</router-link>
+    <PanelGroup></PanelGroup>
   </div>
 </template>
 
 <script>
+  import PanelGroup from './components/PanelGroup'
 
   export default {
-    components: {},
+    components: {PanelGroup},
     data: function () {
-      return {
-
-      }
+      return {}
     },
-    computed: {
-
-    },
+    computed: {},
     watch: {},
 
 
-    methods: {
-
-    },
+    methods: {},
     mounted() {
 
     }

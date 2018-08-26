@@ -152,6 +152,14 @@
             isActive: true,
             details: [
               {
+                position: '13',
+                isActive: true,
+                names: 'es6',
+                link: '/overview/ES6',
+                pageMenu: 1,
+                type: 1
+              },
+              {
                 position: '12',
                 isActive: true,
                 names: '富文本',
