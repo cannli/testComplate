@@ -5,19 +5,19 @@ import { data } from './breadcrumb.js'
 
 Vue.use(Router)
 const home = resolve => require(['../components/layout/home.vue'], resolve)
-const projectIndex = resolve => require(['../components/pages/index/index.vue'], resolve)
+const projectIndex = resolve => require(['../pages/index/index.vue'], resolve)
 // 富文本
-const tinymce = resolve => require(['../components/pages/overview/tinymce.vue'], resolve)
+const tinymce = resolve => require(['../pages/overview/tinymce.vue'], resolve)
 // 回到顶部
-const toTop = resolve => require(['../components/pages/overview/toTop.vue'], resolve)
+const toTop = resolve => require(['../pages/overview/toTop.vue'], resolve)
 
 // 权限查询
-const userPrivilege = resolve => require(['../components/pages/userPrivilege/user_privilege.vue'], resolve)
+const userPrivilege = resolve => require(['../pages/userPrivilege/user_privilege.vue'], resolve)
 
 // 注册
-const register = resolve => require(['../components/pages/register/register.vue'], resolve)
+const register = resolve => require(['../pages/register/register.vue'], resolve)
 // 分润
-const incomeDistribution = resolve => require(['../components/pages/financialManagement/incomeDistribution.vue'], resolve)
+const incomeDistribution = resolve => require(['../pages/financialManagement/incomeDistribution.vue'], resolve)
 
 const router = new Router({
   // mode: 'history',
