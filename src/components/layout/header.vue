@@ -18,10 +18,10 @@
     <div class="header-tab">
       <div class="tab-item" :class="{ 'on' : 'project' == $store.state.headerSelectName}"
            @click.stop="changeheaderName('project')">
-        <router-link :to="{'path':'/'}">ABS项目</router-link>
+        <router-link :to="{'path':'/'}">模块项目</router-link>
       </div>
 
-      <div class="tab-item" :class="{ 'on' : 'system' == $store.state.headerSelectName}"
+      <!--<div class="tab-item" :class="{ 'on' : 'system' == $store.state.headerSelectName}"
            @click.stop="changeheaderName('system')">
         <router-link :to="{path:'/userPrivilege'}">系统配置</router-link>
         <div class="header-projects" style="width:400px;">
@@ -33,18 +33,18 @@
         <router-link :to="{path:'/financialManagement'}">财务管理</router-link>
         <div class="header-projects" style="width:400px;">
         </div>
-      </div>
+      </div>-->
 
       <!-- <div class="tab-item"><a href="javascript:;">小工具</a></div>-->
     </div>
     <div class="header-right">
       <div class="header-user-con">
         <!-- 全屏显示 -->
-        <!-- <div class="btn-fullscreen" @click="handleFullScreen">
+         <div class="btn-fullscreen" @click="handleFullScreen">
            <el-tooltip effect="dark" :content="fullscreen?`取消全屏`:`全屏`" placement="bottom">
              <i class="el-icon-rank"></i>
            </el-tooltip>
-         </div>-->
+         </div>
         <!-- 消息中心 -->
         <div class="btn-bell">
           <el-tooltip effect="dark" :content="message?`有${message}条未读消息`:`消息中心`" placement="bottom">

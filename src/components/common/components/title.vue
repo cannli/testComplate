@@ -5,11 +5,12 @@
     </h2>
     <ul class="link">
       <!-- <a class="line-link" href="javascript:;" @click="tipboxShow = true">设置阈值</a>-->
-      <el-button type="primary" size="medium" class="mod-btn ext-btn-blue" @click="submit" v-show="submitBot">提交</el-button>
+      <el-button type="primary" size="medium" class="mod-btn ext-btn-blue" @click="submit" v-show="submitBot">提交
+      </el-button>
       <el-button plain size="medium" class="but_sty" @click="preview" v-show="previewBot">预览</el-button>
       <el-button plain size="medium" class="but_sty" @click="download" v-show="downloadBot">下载</el-button>
       <el-button plain size="medium" class="but_sty" @click="buyBack" v-show="buyBackBot">置为回购</el-button>
-      <el-button plain size="medium" class="but_sty" @click="addBuyBack" v-show="addBuyBackBot">添加回购资产</el-button >
+      <el-button plain size="medium" class="but_sty" @click="addBuyBack" v-show="addBuyBackBot">添加回购资产</el-button>
     </ul>
   </div>
 </template>
@@ -34,7 +35,7 @@
         type: Boolean,
         default: false
       },
-      addBuyBackBot:{
+      addBuyBackBot: {
         type: Boolean,
         default: false
       },
@@ -43,34 +44,40 @@
         default: ''
       }
     },
-    data () {
+    data() {
       return {}
     },
-    created () {},
-    mounted () {
-      this.$nextTick(() => {})
+    created() {
     },
-    beforeUpdate () {},
-    updated () {},
-    beforeDestroy () {},
-    destroyed () {},
+    mounted() {
+      this.$nextTick(() => {
+      })
+    },
+    beforeUpdate() {
+    },
+    updated() {
+    },
+    beforeDestroy() {
+    },
+    destroyed() {
+    },
     computed: {},
     watch: {},
     methods: {
       // 提交
-      submit () {
+      submit() {
         this.$emit('submit')
       },
-      preview () {
+      preview() {
         this.$emit('preview')
       },
-      download () {
+      download() {
         this.$emit('download')
       },
-      buyBack () {
+      buyBack() {
         this.$emit('buyBack')
       },
-      addBuyBack(){
+      addBuyBack() {
         this.$emit('addBuyBack')
       }
     }
@@ -78,10 +85,16 @@
 </script>
 
 <style scoped>
-.title-box{
-  font-size: 16px;
-}
-  .but_sty{
+  .arr{
+
+  }
+  .title-box {
+    font-size: 16px;
+    margin-left: 20px;
+    font-weight: bold;
+  }
+
+  .but_sty {
     border-radius: 0;
     background: none;
   }
