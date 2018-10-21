@@ -180,6 +180,32 @@
             pageMenu: 1,
             type: 1,
             routeKey: 'overview'
+          },
+          {
+            position: '1',
+            isActive: true,
+            names: '存续期',
+            pageMenu: 1,
+            type: 1,
+            routeKey: 'overview',
+            details: [
+              {
+                position: '13',
+                isActive: true,
+                names: '存续期第5步',
+                link: '/duration/index',
+                pageMenu: 1,
+                type: 1
+              },
+              {
+                position: '13',
+                isActive: true,
+                names: '存续期第5步2',
+                link: '/duration/index2',
+                pageMenu: 1,
+                type: 1
+              }
+            ]
           }
         ]
       }

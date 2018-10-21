@@ -21,7 +21,9 @@ const incomeDistribution = resolve => require(['../pages/financialManagement/inc
 
 // es6
 const es6 = resolve =>require(['../pages/ES6/index.vue'],resolve)
-
+// 存续期
+const duration  = resolve =>require(['../pages/duration/index.vue'],resolve)
+const duration2  = resolve =>require(['../pages/duration/index2.vue'],resolve)
 const router = new Router({
   // mode: 'history',
   // mode: 'history',
@@ -54,6 +56,17 @@ const router = new Router({
         {path: 'tinymce', component: tinymce},
         {path: 'toTop', component: toTop},
         {path: 'ES6', component: es6}
+      ]
+    },
+
+    {
+      path: '/duration/',
+      component: home,
+      name: '存续期',
+      children: [
+        {path: '', redirect: 'duration'},
+        {path: 'index', component: duration},
+        {path: 'index2', component: duration2},
       ]
     },
     {

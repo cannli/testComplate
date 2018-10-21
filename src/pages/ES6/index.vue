@@ -1,76 +1,37 @@
 <template>
   <div>
-<<<<<<< HEAD
-    <h2>你好ES6</h2>
-=======
-    <pre onclick="hljs.copyCode(event)"><code class="language-javascript hljs"><ol class="hljs-ln"><li><div
-      class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></div><div
-      class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-built_in">console</span>.log(...[<span
-      class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])</div></div></li><li><div
-      class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></div><div
-      class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-comment">// 1 2 3</span></div></div></li><li><div
-      class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></div><div
-      class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-built_in">console</span>.log(<span
-      class="hljs-number">1</span>, ...[<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span
-      class="hljs-number">4</span>], <span class="hljs-number">5</span>)</div></div></li><li><div
-      class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></div><div
-      class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-comment">// 1 2 3 4 5</span></div></div></li><li><div
-      class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="5"></div></div><div
-      class="hljs-ln-code"><div class="hljs-ln-line">[...document.querySelectorAll(<span
-      class="hljs-string">'div'</span>)]</div></div></li><li><div class="hljs-ln-numbers"><div
-      class="hljs-ln-line hljs-ln-n" data-line-number="6"></div></div><div class="hljs-ln-code"><div
-      class="hljs-ln-line"><span class="hljs-comment">// [&lt;div&gt;, &lt;div&gt;, &lt;div&gt;]</span></div></div></li></ol></code><div
-      class="hljs-button" data-title="复制"></div></pre>
-
-    <el-row :gutter="50">
-      <el-col :span="12">
-        <div class="a-row">
-          <titleText title="es6：...扩展"></titleText>
-          <p>1.如果将扩展运算符用于数组赋值，只能放在参数的最后一位，否则会报错。</p>
-          <pre style="background: #666666; color: #fffdef"><code class="language-javascript hljs"><ol class="hljs-ln"><li>
-            <div
-              class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="1"></div></div><div
-            class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">const</span> [...butLast, last] = [<span
-            class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span
-            class="hljs-number">4</span>, <span class="hljs-number">5</span>];</div></div></li><li><div
-            class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="2"></div></div><div
-            class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-comment">//  报错</span></div></div></li><li><div
-            class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="3"></div></div><div
-            class="hljs-ln-code"><div class="hljs-ln-line"><span class="hljs-keyword">const</span> [first, ...middle, last] = [<span
-            class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span
-            class="hljs-number">4</span>, <span class="hljs-number">5</span>];</div></div></li><li><div
-            class="hljs-ln-numbers"><div class="hljs-ln-line hljs-ln-n" data-line-number="4"></div></div><div
-            class="hljs-ln-code"><div class="hljs-ln-line"><span
-            class="hljs-comment">//  报错</span></div></div></li></ol></code><div class="hljs-button"
-                                                                                data-title="复制"></div></pre>
-        </div>
-        <p>
-          2.字符串
-          扩展运算符还可以将字符串转为真正的数组。
-        </p>
-      </el-col>
-      <el-col :span="12">
-        <titleText title="es6：解构" class="a-row"></titleText>
-      </el-col>
-    </el-row>
->>>>>>> 227bb5cee4e747450177e7ebe7489520ee1c5527
+    <table class="reference">
+      <tbody><tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Points</th>
+      </tr>
+      <tr>
+        <td>Jill</td>
+        <td>Smith</td>
+        <td>50</td>
+      </tr>
+      <tr>
+        <td>Eve</td>
+        <td>Jackson</td>
+        <td>94</td>
+      </tr>
+      <tr>
+        <td>John</td>
+        <td>Doe</td>
+        <td>80</td>
+      </tr>
+      <tr>
+        <td>Adam</td>
+        <td>Johnson</td>
+        <td>67</td>
+      </tr>
+      </tbody></table>
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
   export default {
-    name: "index",
-    mounted() {
-      console.log(22222222)
-    }
-=======
-  import titleText from '@/components/common/components/title.vue'
-
-  export default {
-    components: {
-      titleText
-    },
     name: "index",
     mounted() {
       // 数组解构
@@ -107,17 +68,17 @@
         {name: '腰痛', val: 1},
         {name: '手脚麻', val: 4},
         {name: '腰痛', val: 1}]
-      console.log(a1,'a1')
+      console.log(a1, 'a1')
 
-      for (let x of a1.values()){
-        console.log(x,'keys222222')
+      for (let x of a1.values()) {
+        console.log(x, 'keys222222')
       }
 
-      let aSet =new Set(a1)
-      console.log(aSet.keys(),'a1keys')
-      console.log(aSet.values(),'val')
-     // console.log(aSet,'aSet')
-      console.log(a1,'a1')
+      let aSet = new Set(a1)
+      console.log(aSet.keys(), 'a1keys')
+      console.log(aSet.values(), 'val')
+      // console.log(aSet,'aSet')
+      console.log(a1, 'a1')
       // 克隆数组
       const a2 = [...a1]
       a2.push({name: '头晕2', val: 5})
@@ -129,23 +90,22 @@
       console.log(a4)
       console.log(typeof (a3))
       // es6中解构后的数据类型
-      let [name,age,sex]=a1;
-      console.log(name,'name');
-      console.log(age,'age');
-      console.log(sex,'sex');
-      console.log(typeof (sex),'sex')
+      let [name, age, sex] = a1;
+      console.log(name, 'name');
+      console.log(age, 'age');
+      console.log(sex, 'sex');
+      console.log(typeof (sex), 'sex')
 
       //字符串类型
-      let [a,b,c]="这是一个字符串"
+      let [a, b, c] = "这是一个字符串"
       console.log(a)
       console.log(b)
       console.log(c)
 
       // 获取对象里面的可key 跟 value
-      let b1 = {name:'lican', sex : '男', age:12}
-      console.log(Reflect.has(b1,'name'))
+      let b1 = {name: 'lican', sex: '男', age: 12}
+      console.log(Reflect.has(b1, 'name'))
     },
->>>>>>> 227bb5cee4e747450177e7ebe7489520ee1c5527
   }
 </script>
 
