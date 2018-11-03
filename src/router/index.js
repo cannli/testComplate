@@ -24,6 +24,7 @@ const es6 = resolve =>require(['../pages/ES6/index.vue'],resolve)
 // 存续期
 const duration  = resolve =>require(['../pages/duration/index.vue'],resolve)
 const duration2  = resolve =>require(['../pages/duration/index2.vue'],resolve)
+const duration3  = resolve =>require(['../pages/duration/tableindex3.vue'],resolve)
 const router = new Router({
   // mode: 'history',
   // mode: 'history',
@@ -67,6 +68,7 @@ const router = new Router({
         {path: '', redirect: 'duration'},
         {path: 'index', component: duration},
         {path: 'index2', component: duration2},
+        {path: 'index3', component: duration3},
       ]
     },
     {

@@ -204,6 +204,14 @@
                 link: '/duration/index2',
                 pageMenu: 1,
                 type: 1
+              },
+              {
+                position: '13',
+                isActive: true,
+                names: 'table3',
+                link: '/duration/index3',
+                pageMenu: 1,
+                type: 1
               }
             ]
           }
