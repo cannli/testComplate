@@ -1,222 +1,102 @@
-<!--<template>-->
-
-  <!--<div class="hello">-->
-    <!--<h1 style="text-align: center;">拖动到指定div</h1>-->
-    <!--<template>-->
-      <!--<div class='drag-content'>-->
-        <!--<div class='project-content'>-->
-          <!--<div class='select-item' draggable='true' @dragstart='drag($event)' v-for='pjdt in projectdatas'>-->
-            <!--{{pjdt.name}}-->
-          <!--</div>-->
-        <!--</div>-->
-        <!--<div class='people-content'>-->
-          <!--<div class='drag-div' v-for='(ppindex,ppdt) in peopledata' @drop='drop($event)' @dragover='allowDrop($event)'>-->
-            <!--<div class='select-project-item'>-->
-              <!--<label class='drag-people-label'>{{ppindex.name}}：</label>-->
-            <!--</div>-->
-          <!--</div>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</template>-->
-  <!--</div>-->
-<!--</template>-->
-
-<!--<script>-->
-  <!--let dom = '';-->
-  <!--import draggable from 'vuedraggable';-->
-
-  <!--export default {-->
-    <!--name: 'HelloWorld',-->
-    <!--data() {-->
-      <!--return {-->
-        <!--msg: 'Welcome to Your Vue.js App',-->
-        <!--tags: [{-->
-          <!--id: 1,-->
-          <!--name: '第一个'-->
-        <!--}, {-->
-          <!--id: 2,-->
-          <!--name: '第二个'-->
-        <!--}],-->
-        <!--projectdatas: [{-->
-          <!--id: 1,-->
-          <!--name: '葡萄',-->
-        <!--}, {-->
-          <!--id: 2,-->
-          <!--name: '芒果',-->
-        <!--}, {-->
-          <!--id: 3,-->
-          <!--name: '木瓜',-->
-        <!--}, {-->
-          <!--id: 4,-->
-          <!--name: '榴莲',-->
-        <!--}],-->
-        <!--peopledata: [{-->
-          <!--id: 1,-->
-          <!--name: 'first',-->
-        <!--}, {-->
-          <!--id: 2,-->
-          <!--name: 'second',-->
-        <!--}, {-->
-          <!--id: 3,-->
-          <!--name: 'third ',-->
-        <!--}, {-->
-          <!--id: 3,-->
-          <!--name: 'four',-->
-        <!--}]-->
-      <!--}-->
-    <!--},-->
-    <!--methods: {-->
-      <!--getdata(evt) {-->
-        <!--console.log(evt.draggedContext.element.id)-->
-      <!--},-->
-      <!--datadragEnd(evt) {-->
-        <!--console.log('拖动前的索引 :' + evt.oldIndex)-->
-        <!--console.log('拖动后的索引 :' + evt.newIndex)-->
-        <!--console.log(this.tags)-->
-      <!--},-->
-      <!--drag(event) {-->
-        <!--dom = event.currentTarget;-->
-      <!--},-->
-      <!--drop(event) {-->
-        <!--event.preventDefault();-->
-        <!--console.log('我是target')-->
-        <!--console.log(event.srcElement.className)-->
-        <!--if (event.srcElement.className != 'select-item') {-->
-          <!--event.target.appendChild(dom);-->
-          <!--console.log(dom);-->
-        <!--} else {-->
-          <!--alert('该位置已被占用');-->
-        <!--}-->
-      <!--},-->
-      <!--allowDrop(event) {-->
-        <!--event.preventDefault(); //preventDefault() 方法阻止元素发生默认的行为（例如，当点击提交按钮时阻止对表单的提交）-->
-      <!--},-->
-      <!--checkMove(evt) {-->
-        <!--console.log(111111111111111111111)-->
-        <!--console.log(evt.draggedContext.element.name)-->
-        <!--alert(1)-->
-        <!--return (evt.draggedContext.element.name !== 'apple');-->
-      <!--}-->
-    <!--},-->
-    <!--components: {-->
-      <!--draggable-->
-    <!--},-->
-  <!--}-->
-<!--</script>-->
-
-<!--&lt;!&ndash; Add "scoped" attribute to limit CSS to this component only &ndash;&gt;-->
-<!--<style scoped>-->
-  <!--.select-item {-->
-    <!--background-color: #5bc0de;-->
-    <!--display: inline-block;-->
-    <!--text-align: center;-->
-    <!--border-radius: 3px;-->
-    <!--margin-right: 10px;-->
-    <!--cursor: pointer;-->
-    <!--padding: 6px 20px;-->
-    <!--color: #fff;-->
-  <!--}-->
-
-  <!--.cursored {-->
-    <!--cursor: default;-->
-  <!--}-->
-
-  <!--.project-content,-->
-  <!--.people-content {-->
-    <!--margin: 30px 50px;-->
-  <!--}-->
-
-  <!--.people-content {-->
-    <!--margin-top: 30px;-->
-  <!--}-->
-
-  <!--.drag-div {-->
-    <!--border: 1px solid #5bc0de;-->
-    <!--padding: 10px;-->
-    <!--margin-bottom: 10px;-->
-    <!--width: 800px;-->
-    <!--cursor: pointer;-->
-  <!--}-->
-
-  <!--.select-project-item {-->
-    <!--display: inline-block;-->
-    <!--text-align: center;-->
-    <!--border-radius: 3px;-->
-  <!--}-->
-
-  <!--.drag-people-label {-->
-    <!--margin-bottom: 0;-->
-    <!--padding-right: 10px;-->
-  <!--}-->
-<!--</style>-->
 <template>
-  <div class="hello">
-    <h1 style="text-align: center;">sort拖动排序</h1>
-    <draggable v-model="tags" :move="getdata" @update="datadragEnd">
-      <transition-group>
-        <div class="testdiv" v-for="element in tags" :key="element.id">
-          {{element.id}}
-        </div>
-      </transition-group>
-    </draggable>
+  <div id="app">
+    <div class="box scroll-hover"
+         ref="list">
+      <p v-for="(item, index) in msglist"
+         :key="index">
+        {{ item.id }}. {{item.msg}}
+      </p>
+    </div>
+    <div class="sendmsg">
+      <edit-div v-model="inputmsg"
+                @send="send"></edit-div>
+    </div>
+    <textarea name=""
+              id=""
+              resize="none"
+              v-model="tips"></textarea>
   </div>
 </template>
 <script>
-  import draggable from 'vuedraggable';
+  import EditDiv from './components/contentInput'
   export default {
-    name: 'HelloWorld',
+   // name: 'app',
+    components: {
+      EditDiv
+    },
     data() {
       return {
-        msg: 'Welcome to Your Vue.js App',
-        tags: [{
-          id: 1
-        }, {
-          id: 2
-        }]
+        inputmsg: '',
+        msglist: [],
+        index: 0,
+        tips: ''
+      };
+    },
+    watch: {
+      inputmsg: function(newvale) {
+        console.log('bbb');
       }
     },
     methods: {
-      getdata(evt) {
-        console.log(evt,8888888)
-        console.log(evt.draggedContext.element.id== 3)
-        return (evt.draggedContext.element.id== 3)
-      },
-      datadragEnd(evt) {
-        console.log('拖动前的索引 :' + evt.oldIndex)
-        console.log('拖动后的索引 :' + evt.newIndex)
-        console.log(this.tags)
+      send() {
+        let blank =
+          this.inputmsg.split(' ').every(n => {
+            return /^(&nbsp;)+$/.test(n); // 针对空格为&nbsp;的情况
+          }) || this.inputmsg.trim().length === 0; // 普通空格的情况
+
+        if (blank) {
+          this.tips = '内容不能为空';
+          return;
+        }
+        this.msglist.push({
+          id: this.index++,
+          msg: this.inputmsg
+        });
+
+        this.inputmsg = '';
+        this.tips = '发送成功';
+        this.$nextTick(() => {
+          this.$refs.list.scrollTop = this.$refs.list.scrollHeight;
+        });
       }
-    },
-    components: {
-      draggable
-    },
-  }
+    }
+  };
 </script>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-  h1,
-  h2 {
-    font-weight: normal;
+<style>
+  #app {
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+    margin: 0 auto;
+    width: 1000px;
   }
-
-  ul {
-    list-style-type: none;
-    padding: 0;
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
   }
-
-  li {
-    display: inline-block;
-    margin: 0 10px;
+  ::-webkit-scrollbar-thumb {
+    background: rgba(48, 48, 48, 0);
+    border-radius: 5px;
+    height: 30px;
+    transition: all 0.4s ease-out;
   }
-
-  a {
-    color: #42b983;
+  /* 鼠标移入出现滚动条，移出隐藏效果 */
+  .scroll-hover {
+    overflow: scroll;
   }
-
-  .testdiv {
-    background: pink;
-    margin-top: 10px;
-    font-size: 30px;
-    text-align: center;
+  .scroll-hover:hover::-webkit-scrollbar-thumb {
+    background: rgba(48, 48, 48, 0.4);
+  }
+  .sendmsg {
+    width: 300px;
+    line-height: 30px;
+    display: flex;
+  }
+  .inputm {
+    word-break: break-all;
+    width: 200px;
+    min-height: 40px;
+    resize: none;
   }
 </style>
