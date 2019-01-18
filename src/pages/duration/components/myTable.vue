@@ -1,6 +1,6 @@
 <template>
   <div class="my-table">
-    <el-table :data="data">
+    <el-table :data="data" style="width: 100%;">
       <my-column v-for="(item,index) in col" :key="index" :col="item"></my-column>
     </el-table>
   </div>

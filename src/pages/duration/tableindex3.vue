@@ -1,8 +1,6 @@
 <template>
   <div>
-    <my-table :col="col"
-              :data="data">
-    </my-table>
+    <my-table :col="col" :data="data"></my-table>
   </div>
 </template>
 
