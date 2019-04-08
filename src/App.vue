@@ -22,9 +22,10 @@ export default {
 </script>
 <style>
   @import "assets/css/global.css";
-
   @import "assets/css/elementCss/elementSty.css";
   @import "assets/css/header/header.scss";
+  @import "assets/css/main.scss";
+
   [v-cloak]{display: none !important;}
   #app{height: 100%;}
   .z-index-9{z-index:9}
