@@ -1,9 +1,9 @@
 <template>
-  <div class="input-msg"
+  <div class="input-msg mailbox"
        ref="msg"
        contenteditable="plaintext-only"
        @input="changeText"
-       @keydown.enter.prevent="enterMsg"></div>
+       @keydown.enter.prevent="enterMsg">{{value}}</div>
 </template>
 
 <script>
@@ -13,6 +13,11 @@
       value: {
         type: String,
         default: ''
+      }
+    },
+    data() {
+      return {
+      //  myValue: this.value
       }
     },
     watch: {
@@ -25,6 +30,7 @@
         } else {
           this.keepLastIndex(this.$refs.msg);
         }
+      //  this.myValue = newvalue
       }
     },
     methods: {
@@ -38,7 +44,7 @@
       keepLastIndex(obj) {
         if (window.getSelection) {
           //ie11 10 9 ff safari
-          obj.focus(); //解决ff不获取焦点无法定位问题
+          obj.focus(); // 解决ff不获取焦点无法定位问题
           var range = window.getSelection(); //创建range
           range.selectAllChildren(obj); //range 选择obj下所有子内容
           range.collapseToEnd(); //光标移至最后
@@ -56,7 +62,7 @@
 </script>
 
 <style scoped>
-  .input-msg {
+ /* .input-msg {
     line-height: 17px;
     min-height: 17px;
     border: 0;
@@ -79,5 +85,23 @@
 
   .input-msg:empty:before {
     content: '';
-  }
+  }*/
+ .mailbox {
+   width: 100%;
+   min-height: 60px;
+   max-height: 150px;
+   overflow: hidden;
+   overflow-y: scroll;
+   box-sizing: border-box;
+   border: 1px solid #dcdfe6;
+   line-height: 20px;
+   padding: 5px 15px;
+
+   outline: none;
+ // border-radius: 2px;
+ }
+
+ .mailbox:focus {
+   border: 1px solid #409EFF;
+ }
 </style>

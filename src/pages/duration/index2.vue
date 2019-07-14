@@ -1,43 +1,40 @@
 <template>
   <div id="app">
-    <div class="box scroll-hover"
-         ref="list">
-      <p v-for="(item, index) in msglist"
-         :key="index">
-        {{ item.id }}. {{item.msg}}
-      </p>
-    </div>
     <div class="sendmsg">
-      <edit-div v-model="inputmsg"
-                @send="send"></edit-div>
+      <edit-div v-model="inputmsg" :value="inputmsg" @send="send"></edit-div>
     </div>
-    <textarea name=""
-              id=""
-              resize="none"
-              v-model="tips"></textarea>
+    <br/>
+    <br/>
+    <br/>
+    <p v-html="inputmsg"></p>
+
   </div>
 </template>
 <script>
   import EditDiv from './components/contentInput'
+
   export default {
-   // name: 'app',
+    // name: 'app',
     components: {
       EditDiv
     },
     data() {
       return {
-        inputmsg: '',
+        inputmsg: '77777',
         msglist: [],
         index: 0,
         tips: ''
       };
     },
     watch: {
-      inputmsg: function(newvale) {
+      inputmsg: function (newvale) {
         console.log('bbb');
       }
     },
     methods: {
+      inputFn(htmlStr){
+        console.log(htmlStr)
+      },
       send() {
         let blank =
           this.inputmsg.split(' ').every(n => {
@@ -71,28 +68,34 @@
     margin: 0 auto;
     width: 1000px;
   }
+
   ::-webkit-scrollbar {
     width: 4px;
     height: 4px;
   }
+
   ::-webkit-scrollbar-thumb {
     background: rgba(48, 48, 48, 0);
     border-radius: 5px;
     height: 30px;
     transition: all 0.4s ease-out;
   }
+
   /* 鼠标移入出现滚动条，移出隐藏效果 */
   .scroll-hover {
     overflow: scroll;
   }
+
   .scroll-hover:hover::-webkit-scrollbar-thumb {
     background: rgba(48, 48, 48, 0.4);
   }
+
   .sendmsg {
     width: 300px;
     line-height: 30px;
     display: flex;
   }
+
   .inputm {
     word-break: break-all;
     width: 200px;

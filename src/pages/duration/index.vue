@@ -12,14 +12,14 @@
 
           <div class="drag">
             <div class="dragBox" v-for="(item, index) in list" :key="index">
-              <draggable
+             <!-- <draggable
                 :list="item.itemObj"
                 :options="options"
                 :move="getdata"
                 class="board-column-content">
                 <el-button type="primary" size="medium" v-for="x in item.itemObj" v-show="x.status">{{x.name}}
                 </el-button>
-              </draggable>
+              </draggable>-->
             </div>
             <!--<div class="dragBox">-->
             <!--<draggable-->
